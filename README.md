@@ -6,6 +6,10 @@
 
 A Rust-native WebAssembly syntax model useful for generating, parsing, and emitting WebAssembly code.
 
+## Attention
+
+This is just a clone of [misalcedo/wasm-ast](https://github.com/misalcedo/wasm-ast) to add some features I need for an other project.  
+
 ## Design
 WASM-AST is designed with minimal validation. The goal is to closely model the WASM syntax specification in order to allow valid and invalid abstract syntax trees. Lastly, modules cannot be mutated once built.
 
