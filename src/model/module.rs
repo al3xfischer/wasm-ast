@@ -624,6 +624,18 @@ impl Function {
     pub fn body(&self) -> &Expression {
         &self.body
     }
+
+    pub fn set_kind(&mut self,index: TypeIndex) {
+        self.kind = index;
+    }
+
+    pub fn set_locals(&mut self,locals: ResultType) {
+        self.locals = locals;
+    }
+
+    pub fn set_body(&mut self,body: Expression) {
+        self.body = body;
+    }
 }
 
 /// A table is a vector of opaque values of a particular reference type.
