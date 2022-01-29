@@ -95,7 +95,7 @@ pub enum FloatType {
 /// assert_eq!(ValueType::FunctionReference, ReferenceType::Function.into());
 /// assert_eq!(ValueType::ExternalReference, ReferenceType::External.into());
 /// ```
-#[derive(Copy, Clone, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, Eq, PartialEq, Hash)]
 pub enum ReferenceType {
     Function,
     External,
@@ -121,7 +121,7 @@ pub enum ReferenceType {
 /// assert_eq!(ValueType::FunctionReference, ReferenceType::Function.into());
 /// assert_eq!(ValueType::ExternalReference, ReferenceType::External.into());
 /// ```
-#[derive(Copy, Clone, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, Eq, PartialEq, Hash)]
 pub enum ValueType {
     I32,
     I64,
@@ -376,7 +376,7 @@ impl FunctionType {
 ///
 /// assert_eq!(Limit::bounded(2, 5), Limit::new(2, Some(5)));
 /// ```
-#[derive(Copy, Clone, Debug, Eq, PartialEq,Hash)]
+#[derive(Copy, Clone, Debug, Eq, PartialEq, Hash)]
 pub struct Limit {
     min: u32,
     max: Option<u32>,
@@ -428,7 +428,7 @@ impl Limit {
 /// assert_eq!(memory_type.limits(), &limit);
 /// assert_eq!(memory_type, limit.into());
 /// ```
-#[derive(Copy, Clone, Debug, Eq, PartialEq,Hash)]
+#[derive(Copy, Clone, Debug, Eq, PartialEq, Hash)]
 pub struct MemoryType {
     limits: Limit,
 }
@@ -467,7 +467,7 @@ impl From<Limit> for MemoryType {
 /// assert_eq!(table_type.limits(), &limit);
 /// assert_eq!(table_type.kind(), ReferenceType::External);
 /// ```
-#[derive(Copy, Clone, Debug, Eq, PartialEq,Hash)]
+#[derive(Copy, Clone, Debug, Eq, PartialEq, Hash)]
 pub struct TableType {
     limits: Limit,
     kind: ReferenceType,
@@ -516,7 +516,7 @@ impl TableType {
 /// assert_eq!(immutable.kind(), ValueType::F64);
 /// assert_eq!(immutable, GlobalType::new( ValueType::F64,Mutability::Immutable));
 /// ```
-#[derive(Copy, Clone, Debug, Eq, PartialEq,Hash)]
+#[derive(Copy, Clone, Debug, Eq, PartialEq, Hash)]
 pub struct GlobalType {
     mutability: Mutability,
     kind: ValueType,
@@ -556,7 +556,7 @@ impl GlobalType {
 }
 
 /// The mutability of a global variable.
-#[derive(Copy, Clone, Debug, Eq, PartialEq,Hash)]
+#[derive(Copy, Clone, Debug, Eq, PartialEq, Hash)]
 pub enum Mutability {
     Mutable,
     Immutable,
