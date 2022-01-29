@@ -1226,7 +1226,7 @@ impl Export {
 
 /// Exportable definitions are functions, tables, memories, and globals,
 /// which are referenced through a respective descriptor.
-#[derive(Copy, Clone, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, Eq, PartialEq,Hash)]
 pub enum ExportDescription {
     Function(FunctionIndex),
     Table(TableIndex),
@@ -1379,7 +1379,7 @@ impl Import {
 
 /// Each import is specified by a descriptor with a respective type that a definition provided
 /// during instantiation is required to match.
-#[derive(Copy, Clone, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, Eq, PartialEq,Hash)]
 pub enum ImportDescription {
     Function(TypeIndex),
     Table(TableType),
