@@ -45,6 +45,10 @@ impl Name {
     pub fn is_empty(&self) -> bool {
         self.value.is_empty()
     }
+
+    pub fn value(&self) -> &String {
+        &self.value
+    }
 }
 
 impl From<&str> for Name {
